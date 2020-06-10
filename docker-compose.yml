@@ -12,6 +12,7 @@ services:
       USERNAME: ${USERNAME}
       PASSWORD: ${PASSWORD}
       PORT: ${PORT}
+      PATH: ${PATH}
     restart: unless-stopped
 
 

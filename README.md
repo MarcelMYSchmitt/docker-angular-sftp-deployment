@@ -1,6 +1,8 @@
 # Introduction
 
-This project contains a simple dummy frontend angular application. Its purpose is to show how you can build the project and deploy it to any SFTP server, depending on the information you give in the docker-compose or env file.
+This project contains a simple dummy frontend angular application. Its purpose is to show how you can build the project and deploy it to any SFTP server, depending on the information you give in the docker-compose or env file.  
+
+You can find everything concerning the deployment inside the Deploy-Angular.ps1 script. It's a powershell script in which we are using sshpass and lftp for getting an initial footprint of the server and uploading the compiled angular code. The tools we are using are installed inside the docker container via the dockerfile.  
 
 ## Folder structure
 
@@ -17,10 +19,16 @@ The deployment script needs information about the STFP Server adress, the server
 
 Content of .env file  
 ```
+# login address from hoster
 SFTP_ADRESS=*replace_me*  
-USERNAME=*replace_me*  
+# url from website
+USERNAME=*replace_me*
+# password for accessing website  
 PASSWORD=*replace_me*   
+# port address from hoster
 PORT=*replace_me*
+# optional: if you have your code inside subfolders you can give the path as parameter like 'abc/def/frontend-dummy'
+PATH=*replace_me*
 ```
 
 ## How to run
