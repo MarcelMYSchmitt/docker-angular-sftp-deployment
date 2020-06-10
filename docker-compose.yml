@@ -1,0 +1,29 @@
+version: "3.2"
+
+services:
+  frontend-dummy-deployment:
+    container_name: frontend-dummy-deployment
+    image: mrmyiagi/frontend-dummy-deployment
+    build:
+      context: frontend-dummy
+      dockerfile: sftp-deployment/sftp-deployment.Dockerfile
+    environment: 
+      SFTP_ADRESS: ${SFTP_ADRESS}
+      USERNAME: ${USERNAME}
+      PASSWORD: ${PASSWORD}
+      PORT: ${PORT}
+    restart: unless-stopped
+
+
+  frontend-dummy:
+    container_name: frontend-dummy
+    image: mrmyiagi/frontend-dummy
+    build:
+      context: frontend-dummy
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend-dummy:/app/
+      - /app/node_modules
+    ports:
+      - "4205:80"
+    restart: unless-stopped
