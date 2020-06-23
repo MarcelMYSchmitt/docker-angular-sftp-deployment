@@ -36,7 +36,7 @@ lftp sftp://@SFTP_ADRESS -u $USERNAME -p $PORT
 
 if (!$PATH) {
     Write-Host "Go to subfolder path."
-    cd $PATH) 
+    cd $PATH
 }
 
 # upload dist files to remote
